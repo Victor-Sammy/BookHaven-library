@@ -1,0 +1,15 @@
+@media (min-width: 1900px) {
+    .articles-display:nth-child(1), .articles-display:nth-child(2) {
+        width: 66%;
+    }
+    .articles-display:nth-child(3) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30%;
+        flex-direction: column;
+    }
+    .divide {
+        display: block;
+    }
+}

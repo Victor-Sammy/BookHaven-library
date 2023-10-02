@@ -1,0 +1,21 @@
+.banner {
+    background-image: url('../../assets/world-book.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 700px;
+    width: 100%;
+    object-fit: fill;
+    transition: ease-in-out 1s;
+}
+
+.banner:hover {
+    background-image: url('../../assets/human-brain.gif');
+}
+
+@media (max-width: 767px) {
+    .banner {
+        object-fit: cover;
+        background-size: cover;
+    }
+}

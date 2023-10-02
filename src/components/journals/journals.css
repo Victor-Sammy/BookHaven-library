@@ -1,0 +1,17 @@
+.scroll-smooth {
+    scrollbar-width: none;
+}
+.scroll-smooth::-webkit-scrollbar {
+    display: none;
+}
+
+.details {
+    display: none;
+}
+.details:hover {
+    display: block;
+}
+
+.card:hover .details {
+    display: block;
+}
