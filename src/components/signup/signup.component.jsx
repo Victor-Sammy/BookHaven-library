@@ -88,6 +88,7 @@ const SignUp = () => {
       register({
         username,
         email,
+        selectedOption,
         password,
       })
         .then((response) => {

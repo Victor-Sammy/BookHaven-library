@@ -87,6 +87,7 @@ const SignUpMobile = () => {
       register({
         username,
         email,
+        selectedOption,
         password,
       })
         .then((response) => {

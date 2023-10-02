@@ -178,6 +178,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
       register({
         username,
         email,
+        selectedOption,
         password,
       })
         .then((response) => {

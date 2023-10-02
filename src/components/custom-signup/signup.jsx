@@ -93,6 +93,7 @@ const CustomSignUp = () => {
       register({
         username,
         email,
+        selectedOption,
         password,
       })
         .then((response) => {
