@@ -25,14 +25,14 @@ const SignUpMobile = () => {
   const [formError, setFormError] = useState('')
 
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState('')
+  const [role, setRole] = useState('')
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }
 
   const selectOption = (option) => {
-    setSelectedOption(option)
+    setRole(option)
     setIsOpen(false)
   }
 
@@ -87,7 +87,7 @@ const SignUpMobile = () => {
       register({
         username,
         email,
-        selectedOption,
+        role,
         password,
       })
         .then((response) => {
@@ -191,7 +191,7 @@ const SignUpMobile = () => {
                 className='bg-white hover:bg-gray-100 px-4 py-2 w-full h-12 flex items-center justify-between rounded focus:outline-none'
                 onClick={toggleDropdown}
               >
-                {selectedOption || 'Select an option'}
+                {role || 'Select an option'}
                 <svg
                   className={`ml-2 h-5 w-5 transition-transform duration-200 transform ${
                     isOpen ? 'rotate-180' : ''
