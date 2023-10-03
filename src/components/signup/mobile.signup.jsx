@@ -12,7 +12,7 @@ const emailValidator =
 const passwordValidator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
 
 const SignUpMobile = () => {
-  const { register, user } = useAuth()
+  const { register, user, loginGoogle } = useAuth()
   const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
@@ -26,6 +26,11 @@ const SignUpMobile = () => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [role, setRole] = useState('')
+
+  //google sign in
+  const gSignin = () => {
+    loginGoogle()
+  }
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
@@ -160,7 +165,10 @@ const SignUpMobile = () => {
             <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
               <FaFacebookF />
             </div>
-            <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
+            <div
+              className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
+              onClick={gSignin}
+            >
               <BsGoogle />
             </div>
           </div>

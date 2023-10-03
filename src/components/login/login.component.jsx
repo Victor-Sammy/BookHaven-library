@@ -12,7 +12,7 @@ const emailValidator =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 const Login = () => {
-  const { login, user } = useAuth()
+  const { login, user, loginGoogle } = useAuth()
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
@@ -21,6 +21,11 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('')
   const [loading, setLoading] = useState(false)
   const [formError, setFormError] = useState('')
+
+  //google sign in
+  const gSignin = () => {
+    loginGoogle()
+  }
 
   const validateEmail = (email) => {
     let errorMessage = ''
@@ -109,7 +114,10 @@ const Login = () => {
               <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
                 <FaFacebookF />
               </div>
-              <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
+              <div
+                className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
+                onClick={gSignin}
+              >
                 <BsGoogle />
               </div>
             </div>

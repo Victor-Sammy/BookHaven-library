@@ -15,7 +15,7 @@ const passwordValidator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
 
 const CustomSignUp = () => {
   const [switchState, setSwitchState] = useState(false)
-  const { login, register, user } = useAuth()
+  const { login, register, loginGoogle, user } = useAuth()
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
@@ -31,6 +31,11 @@ const CustomSignUp = () => {
   // login state
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
+
+  //google sign in
+  const gSignin = () => {
+    loginGoogle()
+  }
 
   // sign up functions
   const toggleDropdown = () => {
@@ -261,7 +266,10 @@ const CustomSignUp = () => {
                 <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
                   <FaFacebookF />
                 </div>
-                <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
+                <div
+                  className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
+                  onClick={gSignin}
+                >
                   <BsGoogle />
                 </div>
               </div>

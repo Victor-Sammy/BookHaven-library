@@ -16,7 +16,7 @@ const passwordValidator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
 
 const RequireAuth = ({ showLogin, setShowLogin }) => {
   const [switchState, setSwitchState] = useState(false)
-  const { login, loginGoogle, register, user, userGoogle } = useAuth()
+  const { login, loginGoogle, register, user } = useAuth()
   const navigate = useNavigate()
   console.log(showLogin)
 
@@ -28,7 +28,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
   const [username, setUsername] = useState('')
   const [usernameError, setUsernameError] = useState('')
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState('')
+  const [role, setRole] = useState('')
 
   // login state
   const [emailError, setEmailError] = useState('')
@@ -124,7 +124,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
   }
 
   const selectOption = (option) => {
-    setSelectedOption(option)
+    setRole(option)
     setIsOpen(false)
   }
   const validateUsername = (username, check = false) => {
@@ -178,7 +178,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
       register({
         username,
         email,
-        selectedOption,
+        role,
         password,
       })
         .then((response) => {
@@ -246,7 +246,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
     'Publishing professional',
   ]
 
-  if (!user || !userGoogle) {
+  if (!user) {
     return (
       <div>
         <div
@@ -393,7 +393,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
                       className='bg-white hover:bg-gray-100 px-4 py-2 w-full h-12 flex items-center justify-between rounded focus:outline-none'
                       onClick={toggleDropdown}
                     >
-                      {selectedOption || 'Select an option'}
+                      {role || 'Select an option'}
                       <svg
                         className={`ml-2 h-5 w-5 transition-transform duration-200 transform ${
                           isOpen ? 'rotate-180' : ''

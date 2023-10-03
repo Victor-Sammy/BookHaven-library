@@ -16,7 +16,7 @@ const passwordValidator = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
 
 const CustomLogin = () => {
   const [switchState, setSwitchState] = useState(false)
-  const { login, loginGoogle, register, user, userGoogle } = useAuth()
+  const { login, loginGoogle, register, user } = useAuth()
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
@@ -240,7 +240,7 @@ const CustomLogin = () => {
     'Publishing professional',
   ]
 
-  if (!user || !userGoogle) {
+  if (!user) {
     return (
       <>
         <div
