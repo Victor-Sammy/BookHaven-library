@@ -79,6 +79,7 @@ const Articles = () => {
         {isLoading ? (
           <div className='w-full'>
             <img className='w-full h-12' src={loadingGif} alt='' />
+            <img className='w-full h-12' src={loadingGif} alt='' />
           </div>
         ) : (
           <div>
