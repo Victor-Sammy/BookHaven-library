@@ -60,7 +60,7 @@ const Articles = ({ isDarkMode }) => {
                     alt=''
                   />
                 </div>
-                <div className='w-[80%] text-black flex flex-col items-start justify-center'>
+                <div className='w-[80%] flex flex-col items-start justify-center'>
                   <h2 className='font-medium text-blue-400 xs:text-xs md:text-base'>
                     {obj.subject}
                   </h2>
