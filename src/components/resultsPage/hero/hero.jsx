@@ -59,12 +59,9 @@ const Hero = ({ resultsData, setSearch, showLogin, setShowLogin }) => {
     }
   }
 
-  //const [content, setContent] = useState()
   const totalBooks = resultsData?.total
   const books = resultsData?.books
   console.log(books)
-
-  //const bookType = localStorage.getItem('book-type')
 
   return (
     <div>

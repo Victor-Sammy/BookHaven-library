@@ -12,8 +12,6 @@ import Hero from '../components/resultsPage/hero/hero'
 import transition from '../transition'
 import { useLocation } from 'react-router-dom'
 
-//const subject = localStorage.getItem('item')
-
 const ResultsPage = () => {
   const queryClient = useQueryClient()
   const books = localStorage.getItem('resource')
@@ -27,21 +25,6 @@ const ResultsPage = () => {
 
   const location = useLocation()
   const query = new URLSearchParams(location.search).get('q') || ''
-  // const { data, isLoading, isError } = useQuery({
-  //   queryKey: ['publications'],
-  //   queryFn: async () =>
-  //     await axios.get(
-  //       `${rootAPI}/articles?page=${page}&subject=${subject}&resourceType=${filterType.toString()}&search=${search}`
-  //     ),
-  //   staleTime: 2,
-  //   refetchOnMount: true,
-  //   refetchOnWindowFocus: true,
-  // })
-  // console.log(data?.data)
-  // console.log(rootAPI)
-  // console.log(filterType)
-
-  // isError && <div>error loading items</div>
 
   useEffect(() => {
     const getAllMovies = async () => {
@@ -63,11 +46,6 @@ const ResultsPage = () => {
 
     getAllMovies()
   }, [books, filterType, page, query, search, subject])
-
-  // const handleChange = async () => {
-  //   console.log('awaiting change')
-  //   // await queryClient.refetchQueries('publications')
-  // }
 
   return (
     <>

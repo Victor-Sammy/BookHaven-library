@@ -74,7 +74,6 @@ function MobileLoginSignup({ toComponent, setToComponent }) {
     } else {
       return toComponent ? <LoginMobile /> : <SignUpMobile />
     }
-    //showComponentA ? <LoginMobile /> : <SignUpMobile />
   }
 
   return (

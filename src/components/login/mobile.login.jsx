@@ -1,5 +1,4 @@
 import { BsGoogle } from 'react-icons/bs'
-import { FaFacebookF } from 'react-icons/fa'
 import FormInput from '../form-input/form-input.component'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
@@ -101,10 +100,7 @@ const LoginMobile = () => {
       <div className='w-full px-3'>
         <hr className='border-2 border-blue-400 ml-[15%] w-28 float-left' />
         <div className='googleAuth w-full flex flex-col items-center justify-center gap-3 pt-7'>
-          <div className='f-g-icons flex gap-5'>
-            <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
-              <FaFacebookF />
-            </div>
+          <div className='f-g-icons'>
             <div
               className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
               onClick={gSignin}

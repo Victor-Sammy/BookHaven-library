@@ -10,7 +10,6 @@ import { useCallback } from 'react'
 import { rootAPI } from '../components/api/root-api'
 import { baseURL } from '../components/api/root-api'
 import { useNavigate } from 'react-router-dom'
-// import { useQueryClient } from '@tanstack/react-query'
 
 const AuthContext = createContext()
 AuthContext.displayName = 'AuthContext'

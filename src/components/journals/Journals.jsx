@@ -16,8 +16,6 @@ import { NavLink } from 'react-router-dom'
 const Journals = ({ isActive }) => {
   const scrollRef = useRef()
   const [clickCount, setClickCount] = useState(0)
-  //const [hide, setHide] = useState('block')
-  //const navigate = useNavigate()
 
   useEffect(() => {
     console.log(clickCount)

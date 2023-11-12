@@ -4,14 +4,11 @@ import TopNav from '../../components/resultsPage/topnav'
 import { useAuth } from '../../context/AuthContext'
 import Footer from '../../components/footer/Footer'
 import transition from '../../transition'
-//import axios from 'axios'
-//import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
   const { user, updateUser } = useAuth()
   console.log(user)
-  //const navigate = useNavigate()
-  // call the update user in auth context
+
   const email = user && user?.user.email
   const [username, setUsername] = useState(`${user && user?.user.username}`)
   const [loading, setLoading] = useState(false)

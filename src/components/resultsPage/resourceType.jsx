@@ -1,48 +1,19 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-//import { useQueryClient } from '@tanstack/react-query'
 
-const ResourceType = ({
-  //onChangee,
-  resourceTypes,
-  filterType,
-  setFilterType,
-}) => {
+const ResourceType = ({ resourceTypes, filterType, setFilterType }) => {
   console.log(resourceTypes)
 
   const [isOpen, setIsOpen] = useState(false)
-  //const [isChecked, setIsChecked] = useState(false)
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }
 
-  // const handleCheck = () => {
-  //   setIsChecked(true)
-  //   setFilterType([input.value])
-  //   queryClient.invalidateQueries({ queryKey: ['publications'] })
-  //   console.log(filterType)
-  // }
-
   const handleUnCheck = () => {
-    //setIsChecked(false)
     setFilterType([])
     console.log(filterType)
   }
-
-  // useEffect(() => {
-  //   if (isChecked) {
-  //     setFilterType()
-  //     queryClient.invalidateQueries({ queryKey: ['publications'] })
-  //     console.log(filterType)
-  //   } else {
-  //     setFilterType([])
-  //     queryClient.invalidateQueries({ queryKey: ['publications'] })
-  //     //filterType.filter((val) => val !== setFilterType(state))
-  //   }
-  // })
-
-  //const options = ['Journals', 'Book series']
 
   return (
     <div className='resourceType dropdown w-full border relative' id='dropdown'>
@@ -83,11 +54,9 @@ const ResourceType = ({
                 onChange={(e) => {
                   if (e.target.checked) {
                     setFilterType(option)
-                    //onChangee()
                     console.log(option)
                   } else {
                     handleUnCheck()
-                    //onChangee()
                   }
                 }}
               />

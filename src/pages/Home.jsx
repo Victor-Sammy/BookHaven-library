@@ -17,6 +17,23 @@ const Home = () => {
 
   const [isActive, setIsActive] = useState(false)
   const [toComponent, setToComponent] = useState(null)
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const handleChange = () => {
+      setIsDarkMode(darkModeMediaQuery.matches)
+    }
+
+    darkModeMediaQuery.addEventListener('change', handleChange)
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange)
+    }
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('book-type', 'articles')
@@ -43,9 +60,9 @@ const Home = () => {
         toComponent={toComponent}
         setToComponent={setToComponent}
       />
-      <Banner isActive={isActive} />
+      <Banner isActive={isActive} isDarkMode={isDarkMode} />
       <Journals isActive={isActive} />
-      <Articles />
+      <Articles isDarkMode={isDarkMode} />
       <Scroll />
       <Subjects />
       <Footer />

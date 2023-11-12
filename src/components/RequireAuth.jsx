@@ -3,12 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import loginImg from '../assets/login_img.jpg'
 import { BsGoogle } from 'react-icons/bs'
-import { FaFacebookF } from 'react-icons/fa'
 import PwdIcon from '../assets/pwd-icon.png'
 import FormInput from './form-input/form-input.component'
 import CustomButton from './form-input/button.component'
 import { useAuth } from '../context/AuthContext'
-//import CustomSignUp from '../custom-signup/signup'
 
 const emailValidator =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -184,8 +182,6 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
         .then((response) => {
           setLoading(false)
           console.log('profile', response)
-
-          //navigate('', { replace: true })
         })
         .catch((err) => {
           setLoading(false)
@@ -266,10 +262,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
           <section className='mt-8 w-[40%]'>
             <div className='googleAuth flex flex-col items-center justify-center gap-1'>
               <h1 className='font-medium'>Log In with</h1>
-              <div className='f-g-icons flex gap-3'>
-                <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
-                  <FaFacebookF />
-                </div>
+              <div className='f-g-icons'>
                 <div
                   className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
                   onClick={gSignin}
@@ -352,10 +345,7 @@ const RequireAuth = ({ showLogin, setShowLogin }) => {
             <section className='mt-8 w-[40%]'>
               <div className='googleAuth flex flex-col items-center justify-center gap-1'>
                 <h1 className='font-medium'>Sign Up with</h1>
-                <div className='f-g-icons flex gap-3'>
-                  <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
-                    <FaFacebookF />
-                  </div>
+                <div className='f-g-icons'>
                   <div
                     className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
                     onClick={gSignin}

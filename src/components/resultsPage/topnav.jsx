@@ -1,36 +1,14 @@
 /* eslint-disable react/prop-types */
-//import { useState } from 'react'
 import logo from '../../assets/lib-logo2.png'
-//import axios from 'axios'
 import { useAuth } from '../../context/AuthContext'
 import Popup from 'reactjs-popup'
 import { FiMenu } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
 const TopNav = ({ showLogin, setShowLogin }) => {
-  //const [userGoogle, setUserGoogle] = useState(null)
   const { user, logout } = useAuth()
   console.log(user)
   console.log(showLogin)
   const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   googleAuth()
-  // }, [])
-
-  // const googleAuth = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       'http://localhost:5003/auth/login/success',
-  //       {
-  //         withCredentials: true,
-  //       }
-  //     )
-  //     setUserGoogle(data.user)
-  //     console.log(data.userGoogle)
-  //   } catch (error) {
-  //     console.log(error.response?.data)
-  //   }
-  // }
 
   const controlLogin = () => {
     console.log('open login')

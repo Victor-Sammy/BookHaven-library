@@ -3,7 +3,6 @@ import { useAuth } from '../../context/AuthContext'
 import { useState } from 'react'
 import loginImg from '../../assets/login_img.jpg'
 import { BsGoogle } from 'react-icons/bs'
-import { FaFacebookF } from 'react-icons/fa'
 import PwdIcon from '../../assets/pwd-icon.png'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../form-input/button.component'
@@ -110,10 +109,7 @@ const Login = () => {
         <section className='mt-8 w-[40%]'>
           <div className='googleAuth flex flex-col items-center justify-center gap-1'>
             <h1 className='font-medium'>Log In with</h1>
-            <div className='f-g-icons flex gap-3'>
-              <div className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'>
-                <FaFacebookF />
-              </div>
+            <div className='f-g-icons'>
               <div
                 className='border border-gray-200 bg-white hover:bg-gray-200 px-3 py-3 rounded-2xl cursor-pointer'
                 onClick={gSignin}

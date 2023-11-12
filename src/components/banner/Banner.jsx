@@ -5,7 +5,7 @@ import { BsSearch } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 // eslint-disable-next-line react/prop-types
-const Banner = ({ isActive }) => {
+const Banner = ({ isActive, isDarkMode }) => {
   const [query, setQuery] = useState('')
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -51,9 +51,13 @@ const Banner = ({ isActive }) => {
             Your Online Library
           </h1>
           <form onSubmit={handleSearch}>
-            <div className='searchContainer md:ml-[17%] lg:ml-[30%] md:w-[66%] lg:w-[40%] h-auto border border-blue-400 rounded-xl relative mb-2'>
+            <div
+              className={`searchContainer md:ml-[17%] lg:ml-[30%] md:w-[66%] lg:w-[40%] h-auto border border-blue-400 rounded-xl relative mb-2 ${
+                isDarkMode ? 'bg-black text-white' : 'text-black'
+              }`}
+            >
               <input
-                className='w-full h-14 pl-3 rounded-xl text-black xs:placeholder:w-60'
+                className='w-full h-14 pl-3 rounded-xl xs:placeholder:w-60'
                 type='text'
                 value={query}
                 placeholder={getPlaceholderText()}

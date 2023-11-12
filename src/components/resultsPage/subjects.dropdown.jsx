@@ -10,7 +10,6 @@ const SubjectsDropdown = ({ subject, setSubject }) => {
   }
 
   const handleUnCheck = () => {
-    //setIsChecked(false)
     setSubject([localStorage.getItem('item')])
     console.log(subject)
   }
@@ -81,11 +80,9 @@ const SubjectsDropdown = ({ subject, setSubject }) => {
                 onChange={(e) => {
                   if (e.target.checked) {
                     setSubject(option)
-                    //onChangee()
                     console.log(option)
                   } else {
                     handleUnCheck()
-                    //onChangee()
                   }
                 }}
               />
@@ -108,11 +105,9 @@ const SubjectsDropdown = ({ subject, setSubject }) => {
                 onChange={(e) => {
                   if (e.target.checked) {
                     setSubject(option)
-                    //onChangee()
                     console.log(option)
                   } else {
                     handleUnCheck()
-                    //onChangee()
                   }
                 }}
               />

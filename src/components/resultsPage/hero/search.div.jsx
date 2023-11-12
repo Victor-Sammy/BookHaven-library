@@ -1,9 +1,26 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Searchdiv = ({ resultsData, setSearch }) => {
-  //console.log(resultsData ? resultsData?.books[0]?.subject : 'no result')
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const handleChange = () => {
+      setIsDarkMode(darkModeMediaQuery.matches)
+    }
+
+    darkModeMediaQuery.addEventListener('change', handleChange)
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange)
+    }
+  }, [])
+
   console.log(resultsData)
   const subjectTitle = resultsData ? resultsData?.books[0]?.subject : ''
   const bookTitle = resultsData ? resultsData?.books[0]?.title : ''
@@ -37,7 +54,11 @@ const Searchdiv = ({ resultsData, setSearch }) => {
 
   return (
     <div className='w-full xs:mb-20 lg:mb-40 bg-white h-32 flex items-center justify-center'>
-      <div className='xs:w-[96%] lg:w-[70%] border-2 border-blue-400 rounded-xl shadow-lg pr-2 h-12 flex justify-between items-center'>
+      <div
+        className={`xs:w-[96%] lg:w-[70%] border-2 border-blue-400 rounded-xl shadow-lg pr-2 h-12 flex justify-between items-center ${
+          isDarkMode ? 'bg-black text-white' : 'text-black'
+        }`}
+      >
         <input
           className='xs:w-[80%] lg:w-[65%] rounded-xl shadow-lg px-2 h-10 bg-transparent placeholder:text-black font-medium relative'
           type='text'

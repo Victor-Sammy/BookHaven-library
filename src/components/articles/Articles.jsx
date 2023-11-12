@@ -1,11 +1,11 @@
+/* eslint-disable react/prop-types */
 import './articles.css'
 import { rootAPI } from '../api/root-api'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import loadingGif from '../../assets/curve-line.gif'
-//import Skeleton from 'react-loading-skeleton'
 
-const Articles = () => {
+const Articles = ({ isDarkMode }) => {
   const {
     data: articless,
     isLoading,
@@ -17,59 +17,19 @@ const Articles = () => {
     refetchOnWindowFocus: false,
   })
   console.log(articless)
-  // useEffect(() => {
-  //   const getArticles = async () => {
-  //     await axios.get(`${rootAPI}/articles?page=2`).then((response) => {
-  //       console.log(response.data)
-  //       setIsLoading(false)
-  //       //setArticless(response.data)
-  //     })
-  //   }
-  //   getArticles()
-  // }, [])
 
   const articles = articless?.data?.books
   console.log(articles)
 
-  const startIndex = 3 // Index of the first element in the range
-  const endIndex = 4 // Index of the last element in the range (inclusive)
+  const startIndex = 3
+  const endIndex = 4
 
   const selectedRange = articles && articles?.slice(startIndex, endIndex + 1)
 
-  console.log(selectedRange) // Output: [ 4, 5, 6 ]
-  //const imagesSrc = `data:${images.contentType};base64, ${images.image}`
+  console.log(selectedRange)
 
   isError && <div>error loading items</div>
-  //isLoading && <div>loading...</div>
 
-  // const articles = [
-  //   {
-  //     id: 1,
-  //     url: antImg,
-  //     category: 'Zoology',
-  //     title:
-  //       'Ant colonies Maintain Social Homeostasis in the Face of Decreased Density',
-  //     description:
-  //       'Interactions lie at the heart of social organization, particularly in ant societies. Interaction rates are presumed to increase with density, but there ...',
-  //   },
-  //   {
-  //     id: 2,
-  //     url: planetImg,
-  //     category: 'Science',
-  //     title:
-  //       'Planets Orbiting Other Stars: The search for extra-terrestrial life',
-  //     description:
-  //       'Since the Nobel-prize-winning discovery of a planet orbiting a sun-like star, the field of extrasolar planets is undergoing a true revolution. Thousands ...',
-  //   },
-  //   {
-  //     id: 3,
-  //     url: colorsImg,
-  //     category: 'Psychology',
-  //     title: 'Colors: The emotions and impressions they evoke',
-  //     description:
-  //       'In the words of Oscar Wilde,” Mere color can speak to the soul in a thousand different ways.” I too believe that colors are an inseparable aspect of every ...',
-  //   },
-  // ]
   return (
     <div className='xs:w-full xs:px-3 xs:ml-0 md:w-[86%] md:ml-[7%] xl:w-[68%] xl:ml-[17%] xs:mb-20 md:mb-28 xs:-translate-y-5 md:-translate-y-0'>
       <h1 className='text-center xs:text-xs md:text-[1.5rem] font-medium mb-10'>
@@ -104,7 +64,11 @@ const Articles = () => {
                   <h2 className='font-medium text-blue-400 xs:text-xs md:text-base'>
                     {obj.subject}
                   </h2>
-                  <h1 className='font-medium xs:text-[0.7rem] md:text-lg xs:mb-0 md:mb-2 leading-tight'>
+                  <h1
+                    className={`font-medium xs:text-[0.7rem] md:text-lg xs:mb-0 md:mb-2 leading-tight ${
+                      isDarkMode ? 'text-gray-200' : 'text-black'
+                    }`}
+                  >
                     {obj.title}
                   </h1>
                   <p className='xs:text-[0.6rem] md:text-sm leading-tight'>

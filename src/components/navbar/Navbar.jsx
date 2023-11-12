@@ -9,16 +9,12 @@ import { BiSearch } from 'react-icons/bi'
 import { GrFormClose } from 'react-icons/gr'
 import Popup from 'reactjs-popup'
 import './navbar.css'
-//import { useAuth } from '../context/AuthContext'
-// import SignUpPage from '../pages/signup/signup'
-// import LoginPage from '../pages/login/login'
 import { MdContactEmergency } from 'react-icons/md'
 import { FaUserPlus } from 'react-icons/fa'
 import { MdChevronRight } from 'react-icons/md'
 import MobileLoginSignup from '../../pages/mobile-login-signup/login-signup'
 import CustomLogin from '../custom-login/login'
 import CustomSignUp from '../custom-signup/signup'
-//import axios from 'axios'
 import { useAuth } from '../../context/AuthContext'
 
 const Navbar = ({
@@ -29,7 +25,6 @@ const Navbar = ({
   setToComponent,
 }) => {
   const { user, logout } = useAuth()
-  //const [userGoogle, setUserGoogle] = useState(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [toMobileLogin, setToMobileLogin] = useState(Boolean)
   const [showLogin, setShowLogin] = useState(false)
@@ -37,30 +32,6 @@ const Navbar = ({
   const [windowInnerWidth, setWindowInnerWidth] = useState(false)
 
   const navigate = useNavigate()
-
-  // const { user, autoUser } = useAuth()
-  //console.log(userGoogle)
-
-  // useEffect(() => {
-  //   console.log(user)
-  //   googleAuth()
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-
-  // const googleAuth = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       'http://localhost:5003/auth/login/success',
-  //       {
-  //         withCredentials: true,
-  //       }
-  //     )
-  //     setUserGoogle(data.user)
-  //     console.log(data.userGoogle)
-  //   } catch (error) {
-  //     console.log(error.response?.data)
-  //   }
-  // }
 
   const handleLogout = (e) => {
     e.preventDefault()

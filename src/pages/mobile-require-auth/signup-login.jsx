@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-//import SignUpMobile from '../../components/signup/mobile.signup'
-//import LoginMobile from '../../components/login/mobile.login'
 import { MdChevronLeft } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import RequireAuth from '../../components/RequireAuth'
@@ -11,7 +9,6 @@ import SignUpOnMobile from './MobileAuthSignup'
 
 function MobileSignupLogin({ showLogin, setShowLogin }) {
   const [toComponent, setToComponent] = useState(true)
-  //const [closeModal, setCloseModal] = useState(true)
   console.log(toComponent)
   console.log(showLogin)
   const navigate = useNavigate()
@@ -86,7 +83,6 @@ function MobileSignupLogin({ showLogin, setShowLogin }) {
         />
       )
     }
-    //showComponentA ? <LoginMobile /> : <SignUpMobile />
   }
 
   return (

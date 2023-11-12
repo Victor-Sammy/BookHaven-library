@@ -11,7 +11,7 @@ const PdfContent = ({ book }) => {
 
   useEffect(() => {
     const id = localStorage.getItem('book-id')
-    //const bookType = localStorage.getItem('book-type')
+
     axios
       .get(`${rootAPI}/${id}/${book.modelName}/pdf`)
       .then((response) => {
@@ -53,7 +53,6 @@ const PdfContent = ({ book }) => {
             data={`data:application/pdf;base64,${bookContent}`}
             type='application/pdf'
             width='100%'
-            //height='800px'
             className='h-screen'
           >
             Your browser does not support PDFs. Please download the PDF to view
