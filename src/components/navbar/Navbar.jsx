@@ -5,7 +5,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { FiMenu } from 'react-icons/fi'
 import { AiFillHome } from 'react-icons/ai'
 import { BiSolidLogIn } from 'react-icons/bi'
-import { BiSearch } from 'react-icons/bi'
 import { GrFormClose } from 'react-icons/gr'
 import Popup from 'reactjs-popup'
 import './navbar.css'
@@ -207,15 +206,6 @@ const Navbar = ({
                     <AiFillHome />
                   </span>
                   <span>Home</span>
-                  <span>
-                    <MdChevronRight />
-                  </span>
-                </li>
-                <li className='flex items-center justify-between'>
-                  <span>
-                    <BiSearch />
-                  </span>
-                  <span>Search</span>
                   <span>
                     <MdChevronRight />
                   </span>

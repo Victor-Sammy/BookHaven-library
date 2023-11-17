@@ -60,7 +60,11 @@ const Searchdiv = ({ resultsData, setSearch }) => {
         }`}
       >
         <input
-          className='xs:w-[80%] lg:w-[65%] rounded-xl shadow-lg px-2 h-10 bg-transparent placeholder:text-black font-medium relative'
+          className={`xs:w-[80%] lg:w-[65%] rounded-xl shadow-lg px-2 h-10 ${
+            isDarkMode
+              ? 'bg-transparent placeholder:text-white'
+              : 'placeholder:text-black font-medium relative'
+          }`}
           type='text'
           placeholder={placeholder}
           onChange={({ currentTarget: input }) => setSearch(input.value)}
@@ -74,13 +78,13 @@ const Searchdiv = ({ resultsData, setSearch }) => {
             className='bg-gray-100 hover:bg-gray-200 px-4 py-2 w-full h-9 flex items-center justify-between rounded focus:outline-none'
             onClick={toggleDropdown}
           >
-            {selectedOption}
+            <p className='text-gray-800'>{selectedOption}</p>
             <svg
               className={`ml-2 h-10 w-10 transition-transform duration-200 transform ${
                 isOpen ? 'rotate-180' : ''
               }`}
               viewBox='0 0 20 20'
-              fill='currentColor'
+              fill={isDarkMode ? 'black' : 'currentColor'}
             >
               <path
                 fillRule='evenodd'

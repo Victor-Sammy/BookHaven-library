@@ -3,7 +3,7 @@ import { TbListDetails } from 'react-icons/tb'
 import { GoChevronDown } from 'react-icons/go'
 import { GoChevronUp } from 'react-icons/go'
 import { CiExport } from 'react-icons/ci'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiThumbsUp } from 'react-icons/fi'
 import {
   FacebookIcon,
@@ -20,12 +20,34 @@ const SideB = ({ book }) => {
   const [enlarge, setEnlarge] = useState(false)
   const [showSocials, setShowSocials] = useState(false)
 
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const handleChange = () => {
+      setIsDarkMode(darkModeMediaQuery.matches)
+    }
+
+    darkModeMediaQuery.addEventListener('change', handleChange)
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange)
+    }
+  }, [])
+
   const handleShowSocials = () => {
     setShowSocials(!showSocials)
   }
   return (
     <div className='w-full bg-gray-100 h-auto'>
-      <div className='bg-white mx-3 py-4 px-2'>
+      <div
+        className={`bg-white mx-3 py-4 px-2 ${
+          isDarkMode ? 'text-gray-800' : ''
+        }`}
+      >
         <div className='flex items-center justify-between mb-4 relative'>
           <h1 className='text-[.9rem] font-bold'>{book?.title}</h1>
           <div
