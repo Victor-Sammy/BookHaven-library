@@ -258,7 +258,8 @@ const Navbar = ({
                   className={`login flex items-center justify-between cursor-pointer ${
                     user ? 'block' : 'hidden'
                   }`}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
                     handleLogout()
                     handleCloseModal()
                   }}
