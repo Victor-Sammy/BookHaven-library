@@ -36,7 +36,6 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('book-type', 'articles')
     localStorage.removeItem('resource')
   }, [])
 

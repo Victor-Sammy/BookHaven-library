@@ -50,6 +50,7 @@ const Articles = ({ isDarkMode }) => {
                 onClick={() => {
                   localStorage.setItem('major', obj.subject)
                   localStorage.setItem('book-id', obj._id)
+                  localStorage.setItem('book-modelName', 'Articles')
                   window.open('/pdfPage')
                 }}
               >
