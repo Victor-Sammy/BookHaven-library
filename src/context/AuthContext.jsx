@@ -119,8 +119,10 @@ export default function AuthProvider(props) {
 
   const logout = useCallback(() => {
     return Promise.all([setLoading(true), setUser(null)]).then(() => {
-      axios.get(`${baseURL}/auth/logout`)
-      setLoading(false)
+      axios.get(`${baseURL}/auth/logout`).then(() => {
+        setLoading(false)
+        console.log('logged out')
+      })
       localStorage.removeItem('USER_ACCESS_TOKEN')
     })
   }, [setUser])

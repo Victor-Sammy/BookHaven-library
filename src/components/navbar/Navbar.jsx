@@ -110,12 +110,16 @@ const Navbar = ({
             <div className='name-img bg-blue-300 rounded-full w-10 h-10 flex items-center justify-center text-2xl font-semibold capitalize'>
               {user?.user.username[0] || user?.username[0]}
             </div>
-            <p className={`${isScrolled ? 'hidden' : 'text-xl font-medium'}`}>
+            <p
+              className={`${
+                isScrolled ? 'hidden' : 'text-xl text-black font-medium'
+              }`}
+            >
               {user?.user.username || user?.username}
             </p>
             <Popup
               trigger={
-                <div className='text-3xl' onClick=''>
+                <div className='text-3xl text-black'>
                   <FiMenu />
                 </div>
               }
@@ -223,7 +227,9 @@ const Navbar = ({
                   </span>
                 </li>
                 <li
-                  className='flex items-center justify-between cursor-pointer'
+                  className={`flex items-center justify-between cursor-pointer ${
+                    user ? 'hidden' : 'block'
+                  }`}
                   onClick={handleSignUpPage}
                 >
                   <span>
@@ -235,13 +241,32 @@ const Navbar = ({
                   </span>
                 </li>
                 <li
-                  className='login flex items-center justify-between cursor-pointer'
+                  className={`login flex items-center justify-between cursor-pointer ${
+                    user ? 'hidden' : 'block'
+                  }`}
                   onClick={handleLoginPage}
                 >
                   <span>
                     <BiSolidLogIn />
                   </span>
                   <span>Log In</span>
+                  <span>
+                    <MdChevronRight />
+                  </span>
+                </li>
+                <li
+                  className={`login flex items-center justify-between cursor-pointer ${
+                    user ? 'block' : 'hidden'
+                  }`}
+                  onClick={() => {
+                    handleLogout()
+                    handleCloseModal()
+                  }}
+                >
+                  <span>
+                    <BiSolidLogIn />
+                  </span>
+                  <span>Log Out</span>
                   <span>
                     <MdChevronRight />
                   </span>
