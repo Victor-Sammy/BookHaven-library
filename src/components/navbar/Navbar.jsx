@@ -260,7 +260,7 @@ const Navbar = ({
                   }`}
                   onClick={(e) => {
                     e.preventDefault()
-                    handleLogout()
+                    logout()
                     handleCloseModal()
                   }}
                 >
